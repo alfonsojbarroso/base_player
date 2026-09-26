@@ -23,7 +23,6 @@ public class PlayerController {
 
     @GetMapping
     public ResponseEntity<?> findAll() {
-        
         List<PlayerDto> list = playerService.findAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
