@@ -20,9 +20,8 @@ public class PlayerService {
         return playerRepository.findAll().stream().map(PlayerModel::toDto).toList();
     }
 
-    
-
-
-
+    public Integer create(PlayerDto playerDto) {
+        return playerRepository.save(playerDto.toModel()).getId();
+    }
 
 }
