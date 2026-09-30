@@ -1,9 +1,7 @@
 package com.base_player.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.base_player.dto.PlayerDto;
 import com.base_player.model.PlayerModel;
 import com.base_player.respository.PlayerRepository;
@@ -21,5 +19,10 @@ public class PlayerService {
     public List<PlayerDto> findAll() {
         return playerRepository.findAll().stream().map(PlayerModel::toDto).toList();
     }
+
+    
+
+
+
 
 }
