@@ -3,6 +3,7 @@ package com.base_player.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.base_player.dto.PlayerDto;
+import com.base_player.dto.PlayerRsDto;
 import com.base_player.model.PlayerModel;
 import com.base_player.respository.PlayerRepository;
 
@@ -20,8 +21,10 @@ public class PlayerService {
         return playerRepository.findAll().stream().map(PlayerModel::toDto).toList();
     }
 
-    public Integer create(PlayerDto playerDto) {
-        return playerRepository.save(playerDto.toModel()).getId();
+    public PlayerRsDto create(PlayerDto playerDto) {
+        Integer id = playerRepository.save(playerDto.toModel()).getId();
+        PlayerRsDto playerRsDto = new PlayerRsDto(id);
+        return playerRsDto;
     }
 
 }
